@@ -6,11 +6,6 @@
     transition: all .1s ease;
 }
 
-.wrapper {
-    max-width: 1920px;
-    margin: auto;
-}
-
 .container {
     max-width: 1560px;
     margin: auto;
@@ -34,9 +29,24 @@
 }
 
 .wrapper__theme i {
-    margin-left: 20px;
     margin-right: 4px;
     font-size: 20px;
+}
+
+.wrapper-actions{
+    display: flex;
+}
+
+.wrapper-actions input, select{
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 1px solid #000;
+    outline: none;
+    margin-right: 5px;
+}
+
+.wrapper-actions select{
+    cursor: pointer;
 }
 
 .country {
