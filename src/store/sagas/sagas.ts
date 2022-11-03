@@ -1,23 +1,24 @@
 import axios from "axios";
-import {call, put, all, takeLatest} from "typed-redux-saga"
+import {call, put, fork, takeEvery} from "typed-redux-saga"
 import {ICountry} from "../types/stateTypes";
 import {ActionTypes} from "../types/actionTypes";
-import {fetchCountryFailure, fetchCountrySuccess} from "../actions/actions";
+import {fetchCountrySuccess} from "../actions/actions";
 
 const getCountries = () =>
     axios.get<ICountry[]>('https://restcountries.com/v3.1/all')
 
-function* fetchCountriesSaga() {
-    try {
-        const response = yield call(getCountries)
-        yield put(fetchCountrySuccess({country: response.data}))
-    } catch (e: typeof e) {
-        yield put(fetchCountryFailure({error: e.message}))
-    }
+function* fetchCountriesSaga(): Generator<object> {
+    const response = yield  call(getCountries)
+    const typeofResponse: any = response as any
+    yield put(fetchCountrySuccess({country: typeofResponse.data}))
 }
 
 function* countrySaga() {
-    yield all([takeLatest(ActionTypes.FETCH_COUNTRY_REQUEST, fetchCountriesSaga)])
+    yield takeEvery(ActionTypes.FETCH_COUNTRY_REQUEST, fetchCountriesSaga)
+}
+
+export function* rootSaga() {
+    yield fork(countrySaga)
 }
 
 export {countrySaga}

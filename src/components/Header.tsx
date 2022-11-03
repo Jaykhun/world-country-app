@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {countryState} from "../store/types/stateTypes";
 import {darkMode} from "../store/actions/actions";
