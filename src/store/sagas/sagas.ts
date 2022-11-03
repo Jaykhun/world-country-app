@@ -2,7 +2,7 @@ import axios from "axios";
 import {call, put, all, takeLatest} from "typed-redux-saga"
 import {ICountry} from "../types/stateTypes";
 import {ActionTypes} from "../types/actionTypes";
-import {fetchCountryFailure, fetchCountrySuccess} from "../actions/countryFetchAction";
+import {fetchCountryFailure, fetchCountrySuccess} from "../actions/actions";
 
 const getCountries = () =>
     axios.get<ICountry[]>('https://restcountries.com/v3.1/all')

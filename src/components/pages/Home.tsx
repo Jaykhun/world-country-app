@@ -1,13 +1,12 @@
-import {countryState, ICountry} from "../store/types/stateTypes";
-import CountryItem from "./CountryItem";
+import React, {useEffect, useState} from 'react';
 import key from "react-key-string";
-import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {countryState, ICountry} from "../../store/types/stateTypes";
+import {fetchCountryRequest} from "../../store/actions/actions";
+import CountryItem from "../CountryItem";
 
-import {fetchCountryRequest} from "../store/actions/countryFetchAction";
-
-const Country = () => {
-    const {loading, error, countries} = useSelector((state: countryState) => state.country)
+const Home = () => {
+    const {loading, error, countries, isDark} = useSelector((state: countryState) => state.country)
     const [value, setValue] = useState('')
     const [region, setRegion] = useState('')
     const dispatch = useDispatch()
@@ -28,7 +27,7 @@ const Country = () => {
     }, [])
 
     return (
-        <div className="container">
+        <div className={`container ${isDark ? 'dark' : ''}`}>
             <div className="wrapper-actions">
                 <input type="text" placeholder="Search" value={value} onChange={onSearch}/>
                 <select onChange={onSelect} value={region}>
@@ -56,4 +55,4 @@ const Country = () => {
     );
 };
 
-export default Country;
+export default Home;

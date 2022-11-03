@@ -1,23 +1,18 @@
-import {Outlet} from "react-router-dom";
-import Country from "./components/Country";
-import HeaderAction from "./components/HeaderAction";
-import Header from "./components/Header";
-import {useState} from "react";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Layout from "./components/pages/Layout";
+import Info from "./components/pages/Info";
+import Home from "./components/pages/Home";
 
 const App = () => {
-    const [light, setLight] = useState(true)
-
-    const handleLight = () => {
-        setLight(!light)
-    }
-
     return (
-        <div className={`${light ? '' : 'dark'}`}>
-            <Header light={light} setLight={handleLight}/>
-            {/*<HeaderAction/>*/}
-            <Country/>
-            <Outlet/>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout/>}>
+                    <Route index element={<Home/>}/>
+                    <Route path="country/:name.common" element={<Info/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 };
 

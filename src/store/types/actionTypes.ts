@@ -3,7 +3,8 @@ import {ICountry} from "./stateTypes";
 export enum ActionTypes {
     FETCH_COUNTRY_REQUEST = 'FETCH_COUNTRY_REQUEST',
     FETCH_COUNTRY_SUCCESS = 'FETCH_COUNTRY_SUCCESS',
-    FETCH_COUNTRY_FAILURE = 'FETCH_COUNTRY_FAILURE'
+    FETCH_COUNTRY_FAILURE = 'FETCH_COUNTRY_FAILURE',
+    DARK_MODE = 'DARK_MODE'
 }
 
 export interface FetchCountrySuccessPayload {
@@ -12,6 +13,10 @@ export interface FetchCountrySuccessPayload {
 
 export interface FetchCountryFailurePayload {
     error: string
+}
+
+export interface DarkModePayload {
+    isDark: boolean
 }
 
 export interface FetchCountryRequest {
@@ -28,7 +33,13 @@ export interface FetchCountryFailure {
     payload: FetchCountryFailurePayload
 }
 
+export interface DarkMode {
+    type: ActionTypes.DARK_MODE,
+    payload: DarkModePayload
+}
+
 export type Actions =
     | FetchCountryRequest
     | FetchCountrySuccess
     | FetchCountryFailure
+    | DarkMode

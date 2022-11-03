@@ -3,7 +3,8 @@ import {rootReducer} from "../reducers/rootReducer";
 export interface initialState {
     countries: ICountry[],
     loading: boolean,
-    error: string
+    error: string,
+    isDark: boolean
 }
 
 export interface ICountry {

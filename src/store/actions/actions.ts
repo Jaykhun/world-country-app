@@ -4,7 +4,7 @@ import {
     FetchCountryFailure,
     FetchCountrySuccess,
     FetchCountryFailurePayload,
-    FetchCountrySuccessPayload
+    FetchCountrySuccessPayload, DarkMode, DarkModePayload
 } from "../types/actionTypes";
 
 export const fetchCountryRequest = (): FetchCountryRequest => ({
@@ -20,3 +20,9 @@ export const fetchCountryFailure = (payload: FetchCountryFailurePayload): FetchC
     type: ActionTypes.FETCH_COUNTRY_FAILURE,
     payload
 })
+
+export const darkMode = (payload: DarkModePayload): DarkMode => ({
+        type: ActionTypes.DARK_MODE,
+        payload
+    }
+)

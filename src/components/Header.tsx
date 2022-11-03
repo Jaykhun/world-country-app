@@ -1,19 +1,24 @@
-import React from 'react';
-import {HeaderProps} from "../store/types/propsTypes";
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {countryState} from "../store/types/stateTypes";
+import {darkMode} from "../store/actions/actions";
 
-const Header: React.FC<HeaderProps> = ({light, setLight}) => {
+const Header = () => {
+    const {isDark} = useSelector((state: countryState) => state.country)
+    const dispatch = useDispatch()
+
     const changeTheme = () => {
-        setLight(!light)
+        dispatch(darkMode({isDark: !isDark}))
     }
 
     return (
         <>
             <div className="wrapper__header">
-                <div className="container">
+                <div className={`container ${isDark ? 'dark' : ''}`}>
                 <span className="wrapper__theme" onClick={changeTheme}>
-                    {light
-                        ? <><i className="fa-regular fa-sun"></i>Light</>
-                        : <><i className="fa-regular fa-moon"></i> Dark</>
+                    {isDark
+                        ? <><i className="fa-regular fa-moon"></i>Dark</>
+                        : <><i className="fa-regular fa-sun"></i>Light</>
                     }
                 </span>
                 </div>
