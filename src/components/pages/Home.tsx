@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import key from "react-key-string";
 import {useDispatch, useSelector} from "react-redux";
-import {countryState, ICountry} from "../../store/types/stateTypes";
+import {countryState, ICountry, initialState} from "../../store/types/stateTypes";
 import {fetchCountryRequest} from "../../store/actions/actions";
 import CountryItem from "../CountryItem";
 
 const Home = () => {
-    const {loading, error, countries, isDark} = useSelector((state: countryState) => state.country)
+    const {loading, error, countries, isDark} = useSelector<countryState, initialState>(state => state.country)
     const [value, setValue] = useState('')
-    const [region, setRegion] = useState('')
     const dispatch = useDispatch()
 
     const onSearch = (e: any) => {
@@ -16,11 +15,6 @@ const Home = () => {
     }
 
     const filteredCountry = countries.filter(item => item.name.common.toLowerCase().includes(value.toLowerCase()))
-
-    const onSelect = (e: any) => {
-        setRegion(e.target.value)
-        countries.filter(item => item.region.toLowerCase().includes(region.toLowerCase()))
-    }
 
     useEffect(() => {
         dispatch(fetchCountryRequest())
@@ -30,13 +24,6 @@ const Home = () => {
         <div className={`container ${isDark ? 'dark' : ''}`}>
             <div className="wrapper-actions">
                 <input type="text" placeholder="Search" value={value} onChange={onSearch}/>
-                <select onChange={onSelect} value={region}>
-                    <option>All</option>
-                    <option>America</option>
-                    <option>Europe</option>
-                    <option>Africa</option>
-                    <option>Asia</option>
-                </select>
             </div>
 
             <div className="country">

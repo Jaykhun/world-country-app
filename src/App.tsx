@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./components/pages/Layout";
-import Info from "./components/pages/Info";
+import CountryInfo from "./components/pages/CountryInfo";
 import Home from "./components/pages/Home";
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="country/:name.common" element={<Info/>}/>
+                    <Route path="/:id" element={<CountryInfo/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

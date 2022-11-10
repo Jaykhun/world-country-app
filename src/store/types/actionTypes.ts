@@ -4,15 +4,21 @@ export enum ActionTypes {
     FETCH_COUNTRY_REQUEST = 'FETCH_COUNTRY_REQUEST',
     FETCH_COUNTRY_SUCCESS = 'FETCH_COUNTRY_SUCCESS',
     FETCH_COUNTRY_FAILURE = 'FETCH_COUNTRY_FAILURE',
+    FETCH_COUNTRY_INFO_REQUEST = 'FETCH_COUNTRY_INFO_REQUEST',
+    FETCH_COUNTRY_INFO_SUCCESS = 'FETCH_COUNTRY_INFO_SUCCESS',
     DARK_MODE = 'DARK_MODE'
 }
 
 export interface FetchCountrySuccessPayload {
-    country: ICountry[]
+    country: ICountry[] | ICountry
 }
 
 export interface FetchCountryFailurePayload {
     error: string
+}
+
+export interface FetchCountryInfoPayload {
+    countryInfo: ICountry
 }
 
 export interface DarkModePayload {
@@ -33,10 +39,23 @@ export interface FetchCountryFailure {
     payload: FetchCountryFailurePayload
 }
 
+export interface FetchCountryInfoRequest {
+    type: ActionTypes.FETCH_COUNTRY_INFO_REQUEST
+}
+
+export interface FetchCountryInfoSuccess {
+    type: ActionTypes.FETCH_COUNTRY_INFO_SUCCESS,
+    payload: FetchCountryInfoPayload
+}
+
 export interface DarkMode {
     type: ActionTypes.DARK_MODE,
     payload: DarkModePayload
 }
+
+export type ActionInfo =
+    | FetchCountryInfoSuccess
+    | FetchCountryInfoRequest
 
 export type Actions =
     | FetchCountryRequest

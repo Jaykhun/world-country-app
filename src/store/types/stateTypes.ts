@@ -19,6 +19,7 @@ export interface ICountry {
             symbol: string
         }
     },
+    alpha3Code: string
     population: number,
     region: string,
     subregion: string,
@@ -27,7 +28,8 @@ export interface ICountry {
     flags: {
         png: string
     },
-    borders: string[]
+    borders: string[],
+    cca3: string
 }
 
 export type countryState = ReturnType<typeof rootReducer>
