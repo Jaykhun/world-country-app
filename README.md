@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+<p align="center">
+<!--       <img src=""> -->
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+   <img src="https://img.shields.io/badge/library-react%20v18.2.0-%2300CDF2" alt="library">
+   <img src="https://img.shields.io/badge/state%20manager-redux%20v8.0.4-%237046B2" alt="state-manager">
+   <img src="https://img.shields.io/badge/middleware-redux%20saga%20v1.2.1-%85D26A" alt="middleware">
+   <img src="https://img.shields.io/badge/languages-typescript%20v4.4.2-%232F74C0" alt="languages">
+   <img src="https://img.shields.io/badge/license-MIT-%23A10000" alt="license">
+</p>
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+The project appears to be a web-based application that allows users to search for countries and view information about them. The application has two main features - the ability to switch between a dark and light theme, and the ability to view the closest countries to a selected country.
 
-### `npm start`
+The closest countries feature allows users to view a list of countries that are geographically close to the selected country. This feature is particularly useful for users who are interested in exploring neighboring countries or who are planning to travel to a particular region.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Install 
+        npm install
+### Start 
+        npm start
+### Build
+        npm run build
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The ability to switch between a dark and light theme
+- Search countries by name and view information about them
+- The ability to view the closest countries to a selected country
 
-### `npm run build`
+## Technologies Used
+The Project is built using the following technologies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- React Router Dom
+- Redux
+- Redux Saga
+- Axios
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Developers
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Jaykhun](https://github.com/Jaykhun)
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project world-country-app is distributed under the MIT license
